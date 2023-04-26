@@ -1,5 +1,6 @@
 const express = require('express')
 const router = express.Router()
+const controller = require('./controller')
 
 router.get('/ble-scan', (req, res) => {
     res.status(200).json({
@@ -7,12 +8,6 @@ router.get('/ble-scan', (req, res) => {
     })
 })
 
-router.post('/ble-scan', (req, res) => {
-    console.log(req.body.message)
-    res.status(200).json({
-        status: 'success'
-    })
-})
-
+router.post('/ble-scan', controller.newScan())
 
 module.exports = router
